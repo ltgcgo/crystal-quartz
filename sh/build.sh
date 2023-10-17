@@ -12,21 +12,21 @@ rm -r dist/*.mjs 2> /dev/null
 echo "Now building CSS."
 ls -1 css | while IFS= read -r dir ; do
 	if [ -e "css/${dir}/index.css" ] ; then
-		printf "Building CSS target \"${dir}\"... "
-		shx skin $dir --minify $1 > /dev/null && echo "done."
+		echo "Building CSS target \"${dir}\"..."
+		shx skin $dir --minify $1 > /dev/null
 	fi
 done
 echo "Now building JS."
-substRules='s/{var /{let /g;s/;var /;let /g'
+substRules='s/{var /{let /g;s/}var /}let /g;s/;var /;let /g;s/(var /(let /g;s/var /"use strict";let /'
 ls -1 src | while IFS= read -r dir ; do
 	if [ -e "src/${dir}/index.js" ] ; then
-		printf "Building JS target \"${dir}\"... "
-		shx live $dir --minify $1 > /dev/null && echo "done."
+		echo "Building JS target \"${dir}\"..."
+		shx live $dir --minify $1 > /dev/null
 		sed -zi "$substRules" "dist/${dir}.js"
 	fi
 	if [ -e "src/${dir}/index.mjs" ] ; then
-		printf "Building JS module \"${dir}\"... "
-		shx live $dir --minify $1 > /dev/null && echo "done."
+		echo "Building JS module \"${dir}\"..."
+		shx live $dir --minify $1 > /dev/null
 		sed -zi "$substRules" "dist/${dir}.mjs"
 	fi
 done
