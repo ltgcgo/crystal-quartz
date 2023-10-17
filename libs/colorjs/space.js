@@ -260,6 +260,7 @@ export default class ColorSpace {
 		if (argType === "string") {
 			// It's a color space id
 			let ret = ColorSpace.registry[space.toLowerCase()];
+			//console.debug(ColorSpace);
 
 			if (!ret) {
 				throw new TypeError(`No color space found with id = "${space}"`);

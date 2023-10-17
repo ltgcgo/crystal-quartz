@@ -4,7 +4,7 @@ import defaults from "./defaults.js";
 import to from "./to.js";
 import serialize from "./serialize.js";
 import clone from "./clone.js";
-import REC2020 from "./spaces/rec2020.js";
+//import REC2020 from "./spaces/rec2020.js";
 import P3 from "./spaces/p3.js";
 import Lab from "./spaces/lab.js";
 import sRGB from "./spaces/srgb.js";
@@ -16,7 +16,7 @@ let supportsNone;
 
 if (typeof CSS !== "undefined" && CSS.supports) {
 	// Find widest supported color space for CSS
-	for (let space of [Lab, REC2020, P3]) {
+	for (let space of [Lab, P3]) {
 		let coords = space.getMinCoords();
 		let color = {space, coords, alpha: 1};
 		let str = serialize(color);
