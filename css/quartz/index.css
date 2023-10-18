@@ -1,0 +1,44 @@
+/*
+Use MD green for default:
+sRGB: #4caf50
+P3:   color(display-p3 0.4038 0.6777 0.358)
+Lch:  lch(64.02 59.564 139.07)
+
+Colour spaces:
+(none): srgb
+p:      p3
+l:      lch
+
+Influenced by dark and light colour schemes:
+Background - bg, for backgrounds
+Backpad - bp, for containers
+Neutral Variant - nv, for texts
+Neutral - nt, for emphasized texts
+Inverse Neutral Variant - in, for texts on buttons
+
+Influenced by accent and light/dark colour schemes:
+Primary - pr
+Muted primary - mp
+Secondary - sc
+Muted secondary - ms
+*/
+:root {
+	--cq-bg: rgb(96.1% 100% 95.58%);
+}
+
+@media (color-gamut: p3) {
+	:root {
+		--cq-bg-p: color(display-p3 0.965 1 0.955);
+	}
+}
+
+@media (color-gamut: rec2020) {
+	:root {
+		--cq-bg-l: lch(99% 59.56 139.07);
+	}
+}
+
+html {
+	background: var(--cq-bg-l, var(--cq-bg-p, var(--cq-bg)));
+	font-family: sans-serif;
+}

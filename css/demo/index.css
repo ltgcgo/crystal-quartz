@@ -1,0 +1,65 @@
+
+/* Media query section */
+span[id^="c-"] {
+	display: none;
+}
+
+/* Bit depth section */
+@media (color) {
+	span#c-cd-0 {
+		display: inline;
+	}
+}
+@media (min-color: 8) {
+	span#c-cd-8 {
+		display: inline;
+	}
+}
+@media (min-color: 10) {
+	span#c-cd-10 {
+		display: inline;
+	}
+}
+@media (min-color: 11) {
+	span#c-cd-11 {
+		display: inline;
+	}
+}
+
+/* Colour space section */
+@media (color-gamut: srgb) {
+	span#c-cs-0 {
+		display: inline;
+	}
+}
+@media (color-gamut: p3) {
+	span#c-cs-1 {
+		display: inline;
+	}
+}
+@media (color-gamut: rec2020) {
+	span#c-cs-2 {
+		display: inline;
+	}
+}
+
+/* Scheme section */
+span#c-cm-a {
+	display: inline;
+}
+@media (prefers-color-scheme: dark) {
+	span#c-cm-a {
+		display: none;
+	}
+	span#c-cm-d {
+		display: inline;
+	}
+}
+@media (prefers-color-scheme: light) {
+	span#c-cm-a {
+		display: none;
+	}
+	span#c-cm-l {
+		display: inline;
+	}
+}

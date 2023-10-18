@@ -1,0 +1,1 @@
+:root{--cq-bg:#f5fff4}@media (color-gamut:p3){:root{--cq-bg-p:color(display-p3 .965 1 .955)}}@media (color-gamut:rec2020){:root{--cq-bg-l:lch(99% 59.56 139.07)}}html{background:var(--cq-bg-l,var(--cq-bg-p,var(--cq-bg)));font-family:sans-serif}
